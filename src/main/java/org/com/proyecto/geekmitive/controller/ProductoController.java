@@ -12,12 +12,13 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/geekmitive")
+@CrossOrigin(origins="*")
 public class ProductoController {
 
     @Autowired
     ProductoRepository productoRepository;
 
-    @CrossOrigin(maxAge = 3600)
+    
     @GetMapping("/productos/getAll")
     public List<Producto> getAllProductos(){
         return productoRepository.findAll();
@@ -29,8 +30,8 @@ public class ProductoController {
     }
 
     @PostMapping("/productos/saveProductos")
-    public ResponseEntity<Void> saveProductos (@RequestBody List<Producto> productos){
-        productoRepository.saveAll(productos);
+    public ResponseEntity<Void> saveProductos (@RequestBody Producto producto){
+        productoRepository.save(producto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

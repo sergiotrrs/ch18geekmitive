@@ -9,20 +9,32 @@ public class CarritoHasProducto {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long idCarritoHasProducto;
 	
-    private Long idCarrito;
+	@ManyToOne
+	@JoinColumn(name="id_carrito")
+    private Carrito idCarrito;
 	
 	@ManyToOne
 	@JoinColumn(name="id_producto")
 	private Producto idProducto;
 	
 	private Integer cantidad;
+	
+	
+	public Long getIdCarritoHasProducto() {
+		return idCarritoHasProducto;
+	}
 
-	public Long getIdCarrito() {
+	public void setIdCarritoHasProducto(Long idCarritoHasProducto) {
+		this.idCarritoHasProducto = idCarritoHasProducto;
+	}
+
+	public Carrito getIdCarrito() {
 		return idCarrito;
 	}
 
-	public void setIdCarrito(Long idCarrito) {
+	public void setIdCarrito(Carrito idCarrito) {
 		this.idCarrito = idCarrito;
 	}
 

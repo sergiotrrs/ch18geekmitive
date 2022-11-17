@@ -2,16 +2,19 @@ package org.com.proyecto.geekmitive.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Table(name = "productos")
 @Entity
-public class Producto {
+public class Producto implements Serializable{
 	
-	 @Id
+	private static final long serialVersionUID = 1L;
+	@Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	 @Column(name="id_producto")
-	 @JsonIgnore
+	 //@JsonIgnore
 	 private Long id_producto;
  	 @ManyToOne
  	 @JoinColumn(name="id_categoria")
