@@ -3,7 +3,7 @@ package org.com.proyecto.geekmitive.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Table(name = "entrega")
+@Table(name = "delivery")
 @Entity
 public class Delivery {
 
