@@ -1,1 +1,1 @@
-INSERT INTO productos(name,price,description) VALUES ('Mochila clásica','800.25','Mochila clásica de Dora la exploradora');
+INSERT INTO productos(nombre,precio,descripcion) VALUES ('Mochila clásica','800.25','Mochila clásica de Dora la exploradora');
