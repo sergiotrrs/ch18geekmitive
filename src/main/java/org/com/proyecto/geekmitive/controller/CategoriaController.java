@@ -12,12 +12,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/geekmitive")
-@CrossOrigin(origins="*")
+//@CrossOrigin(origins="*")
 public class CategoriaController {
 
     @Autowired
     CategoriaRepository categoriaRepository;
-
+    
+    @CrossOrigin(maxAge = 3600)
     @GetMapping("categorias/getAll")
     public List<Categoria> getAllCategorias(){
         return categoriaRepository.findAll();

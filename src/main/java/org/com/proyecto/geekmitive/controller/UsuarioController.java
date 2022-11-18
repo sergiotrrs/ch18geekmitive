@@ -10,17 +10,18 @@ import java.util.NoSuchElementException;
 
 @RequestMapping("/geekmitive")
 @RestController
-@CrossOrigin(origins="*")
-
+//@CrossOrigin(origins="*")
 public class UsuarioController {
 
     @Autowired
     UsuarioRepository usuarioRepository;
-
+    
     @GetMapping("/usuarios/getAll")
     public List<Usuario> getUsuarios(){
         return usuarioRepository.findAll();
     }
+    
+    @CrossOrigin(maxAge = 3600)
     @GetMapping("/usuarios/getByNickPass")
     public Usuario getUsuarios(@RequestParam String nickName, @RequestParam String password){
         Usuario usuario = usuarioRepository.findAll()
