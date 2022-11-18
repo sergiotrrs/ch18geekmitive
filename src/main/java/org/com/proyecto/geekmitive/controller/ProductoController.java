@@ -12,24 +12,27 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/geekmitive")
-//@CrossOrigin(origins="*")
+@CrossOrigin(origins="*")
 public class ProductoController {
 
     @Autowired
     ProductoRepository productoRepository;
 
-    @CrossOrigin(maxAge = 3600)
+    //@CrossOrigin(maxAge = 3600)
     @GetMapping("/productos/getAll")
+    @ResponseBody 
     public List<Producto> getAllProductos(){
         return productoRepository.findAll();
     }
 
     @GetMapping("/productos/getById/{id}")
+    @ResponseBody 
     public Optional<Producto> getProductoById(@PathVariable Long id){
         return productoRepository.findById(id);
     }
 
     @PostMapping("/productos/saveProductos")
+    @ResponseBody 
     public ResponseEntity<Void> saveProductos (@RequestBody Producto producto){
         productoRepository.save(producto);
         return new ResponseEntity<>(HttpStatus.CREATED);
